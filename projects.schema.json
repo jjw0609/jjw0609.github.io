@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Web Services Portfolio Data",
+  "type": "object",
+  "required": ["meta", "projects"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "meta": {
+      "type": "object",
+      "required": ["name", "title"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "description": "헤더 로고에 표시될 이름" },
+        "title": { "type": "string", "description": "목록 섹션 제목" },
+        "subtitle": { "type": "string", "description": "목록 섹션 설명 한 줄" },
+        "githubUrl": { "type": "string", "description": "헤더 GitHub 링크 URL" }
+      }
+    },
+    "projects": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/project" }
+    }
+  },
+  "definitions": {
+    "project": {
+      "type": "object",
+      "required": ["id", "title", "summary", "description", "tags"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "URL에 쓰이는 소문자 kebab-case slug (예: map-lounge). 프로젝트 간 중복 불가"
+        },
+        "title": { "type": "string", "description": "프로젝트 이름" },
+        "summary": {
+          "type": "string",
+          "maxLength": 80,
+          "description": "카드에 표시될 한 줄 소개 (80자 이내 권장)"
+        },
+        "description": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "description": "상세 설명. 배열의 각 요소가 하나의 문단"
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "maxItems": 5,
+          "description": "카드에 표시할 대표 기술 태그 (3~5개 권장)"
+        },
+        "techStack": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "상세페이지 카테고리별 기술스택. 해당 없으면 카테고리 생략 또는 빈 배열",
+          "properties": {
+            "frontend": { "type": "array", "items": { "type": "string" } },
+            "backend": { "type": "array", "items": { "type": "string" } },
+            "database": { "type": "array", "items": { "type": "string" } },
+            "infra": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "features": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "주요 기능 목록"
+        },
+        "thumbnail": {
+          "type": "string",
+          "description": "대표 이미지 경로. 없으면 빈 문자열 → 플레이스홀더 표시"
+        },
+        "screenshots": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "상세페이지 스크린샷 갤러리 이미지 경로 목록"
+        },
+        "links": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "demo": { "type": "string", "description": "라이브 데모 URL" },
+            "github": { "type": "string", "description": "소스 저장소 URL" }
+          }
+        },
+        "period": { "type": "string", "description": "개발 기간 (예: 2024.03 ~ 2024.09)" },
+        "role": { "type": "string", "description": "담당 역할" },
+        "status": {
+          "type": "string",
+          "enum": ["운영중", "개발중", "종료"],
+          "description": "서비스 상태"
+        },
+        "featured": {
+          "type": "boolean",
+          "description": "true면 목록 상단에 우선 정렬"
+        }
+      }
+    }
+  }
+}

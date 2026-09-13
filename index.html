@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정재웅 - Web Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <!-- 로고의 마침표에 포인트 컬러(point-color) 클래스 추가 (텍스트는 projects.json meta에서 주입) -->
+            <h1 class="logo" id="home-btn">JaeWoong<span class="point-color">.</span></h1>
+            <nav>
+                <a href="https://github.com" target="_blank" rel="noopener" class="nav-link" id="github-link">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 리스트 뷰 -->
+        <section id="list-view" class="view-section active">
+            <div class="section-header">
+                <h2 id="list-title">Projects</h2>
+                <p id="list-subtitle">기획부터 개발까지 참여한 웹 서비스 목록입니다.</p>
+            </div>
+            <div class="project-grid" id="project-grid">
+                <!-- JS에서 렌더링 -->
+            </div>
+        </section>
+
+        <!-- 상세 뷰 -->
+        <section id="detail-view" class="view-section">
+            <button class="back-btn" id="back-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Projects
+            </button>
+            <div class="detail-container" id="detail-content">
+                <!-- JS에서 렌더링 -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

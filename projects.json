@@ -1,0 +1,104 @@
+{
+  "$schema": "./projects.schema.json",
+  "meta": {
+    "name": "JaeWoong",
+    "title": "Web Services",
+    "subtitle": "기획부터 개발까지 참여한 웹 서비스 목록입니다.",
+    "githubUrl": "https://github.com"
+  },
+  "projects": [
+    {
+      "id": "map-lounge",
+      "title": "Map Lounge",
+      "summary": "사용자가 자유롭게 공간 정보를 공유하고 소통할 수 있는 맵 기반 커뮤니티 플랫폼",
+      "description": [
+        "공간 정보와 사용자 커뮤니티를 결합한 플랫폼입니다. VWorld 및 NGII의 배경 지도를 연동하고, 사용자가 원하는 위치 기반 데이터를 시각화할 수 있도록 설계했습니다.",
+        "PostGIS를 활용한 공간 데이터베이스 구축 및 GeoServer를 통한 효율적인 타일 서비스 제공에 집중했습니다."
+      ],
+      "tags": ["Spring Boot", "GeoServer", "PostGIS", "React"],
+      "techStack": {
+        "frontend": ["React"],
+        "backend": ["Spring Boot", "Java"],
+        "database": ["PostgreSQL", "PostGIS"],
+        "infra": ["GeoServer"]
+      },
+      "features": [
+        "VWorld / NGII 배경 지도 연동",
+        "위치 기반 데이터 시각화",
+        "PostGIS 기반 공간 쿼리 및 GeoServer 타일 서비스"
+      ],
+      "thumbnail": "",
+      "screenshots": [],
+      "links": {
+        "demo": "",
+        "github": ""
+      },
+      "period": "",
+      "role": "기획 · 풀스택 개발",
+      "status": "운영중",
+      "featured": true
+    },
+    {
+      "id": "moment-gallery",
+      "title": "Moment Gallery",
+      "summary": "사진과 영상을 효율적으로 분류하고 관리할 수 있는 웹 기반 미디어 갤러리",
+      "description": [
+        "Synology NAS 환경에 구축된 커스텀 미디어 분류 웹 서비스입니다. 사용자 지정 조건에 따라 미디어를 앨범 형태로 보여줍니다.",
+        "Docker 컨테이너 환경에서 안정적으로 동작하도록 인프라를 구성했으며, Python과 FastAPI를 활용하여 백엔드 성능을 최적화했습니다."
+      ],
+      "tags": ["FastAPI", "React", "PostgreSQL", "Docker"],
+      "techStack": {
+        "frontend": ["React"],
+        "backend": ["FastAPI", "Python"],
+        "database": ["PostgreSQL"],
+        "infra": ["Docker", "Synology NAS"]
+      },
+      "features": [
+        "사용자 지정 조건 기반 미디어 앨범 분류",
+        "Docker 컨테이너 기반 배포",
+        "FastAPI 백엔드 성능 최적화"
+      ],
+      "thumbnail": "",
+      "screenshots": [],
+      "links": {
+        "demo": "",
+        "github": ""
+      },
+      "period": "",
+      "role": "기획 · 풀스택 개발",
+      "status": "운영중",
+      "featured": false
+    },
+    {
+      "id": "hiking-tracker",
+      "title": "Hiking Tracker",
+      "summary": "사내 등산 동호회를 위한 맞춤형 활동 기록 및 배지 시스템",
+      "description": [
+        "사내 동호회 회원들의 등산 활동을 기록하고 특정 목표 달성 시 배지를 부여하는 시스템입니다.",
+        "사용자 친화적인 인터페이스와 실시간 세션 만료 알림 기능을 적용하여, 공공기관 수준의 안정적이고 직관적인 UI/UX 가이드라인을 준수했습니다."
+      ],
+      "tags": ["Java", "Spring Security", "Redis", "JavaScript"],
+      "techStack": {
+        "frontend": ["JavaScript"],
+        "backend": ["Java", "Spring Security"],
+        "database": ["Redis"],
+        "infra": []
+      },
+      "features": [
+        "등산 활동 기록 및 목표 달성 배지 부여",
+        "실시간 세션 만료 알림",
+        "공공기관 수준의 UI/UX 가이드라인 준수"
+      ],
+      "thumbnail": "",
+      "screenshots": [],
+      "links": {
+        "demo": "",
+        "github": ""
+      },
+      "period": "",
+      "role": "기획 · 풀스택 개발",
+      "status": "운영중",
+      "featured": false
+    }
+  ]
+}
