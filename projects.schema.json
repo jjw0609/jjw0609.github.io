@@ -13,8 +13,7 @@
       "properties": {
         "name": { "type": "string", "description": "헤더 로고에 표시될 이름" },
         "title": { "type": "string", "description": "목록 섹션 제목" },
-        "subtitle": { "type": "string", "description": "목록 섹션 설명 한 줄" },
-        "githubUrl": { "type": "string", "description": "헤더 GitHub 링크 URL" }
+        "subtitle": { "type": "string", "description": "목록 섹션 설명 한 줄" }
       }
     },
     "projects": {
@@ -84,13 +83,6 @@
             "demo": { "type": "string", "description": "라이브 데모 URL" },
             "github": { "type": "string", "description": "소스 저장소 URL" }
           }
-        },
-        "period": { "type": "string", "description": "개발 기간 (예: 2024.03 ~ 2024.09)" },
-        "role": { "type": "string", "description": "담당 역할" },
-        "status": {
-          "type": "string",
-          "enum": ["운영중", "개발중", "종료"],
-          "description": "서비스 상태"
         },
         "featured": {
           "type": "boolean",

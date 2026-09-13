@@ -222,45 +222,17 @@ body {
     flex: 1;
 }
 
-.detail-title-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-}
-
 .detail-info h2 {
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: -0.03em;
+    margin-bottom: 12px;
 }
 
 .detail-summary {
     color: var(--text-muted);
     font-size: 1.1rem;
     margin-bottom: 24px;
-}
-
-/* 기간 / 역할 메타 */
-.meta-rows {
-    margin-bottom: 24px;
-}
-
-.meta-row {
-    display: flex;
-    gap: 12px;
-    font-size: 0.95rem;
-    padding: 4px 0;
-}
-
-.meta-row dt {
-    color: var(--text-muted);
-    min-width: 48px;
-    font-weight: 500;
-}
-
-.meta-row dd {
-    color: var(--text-main);
 }
 
 /* 링크 버튼 */
@@ -297,17 +269,6 @@ body {
 .link-btn.primary:hover {
     background: #003ecc;
     color: #fff;
-}
-
-/* 상태 배지 */
-.status-badge {
-    font-size: 0.72rem;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 999px;
-    background: var(--accent-light);
-    color: var(--accent-color);
-    white-space: nowrap;
 }
 
 /* 상세 본문 블록 */
@@ -398,19 +359,6 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 10px;
     display: block;
-}
-
-/* 카드 상단 (제목 + 상태) */
-.card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 8px;
-}
-
-.card-top h3 {
-    margin-bottom: 0;
 }
 
 /* 로드 실패 안내 */

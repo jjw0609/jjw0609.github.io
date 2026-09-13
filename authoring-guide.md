@@ -24,14 +24,10 @@
 | `thumbnail` | ○ | 대표 이미지 경로. 없으면 `""` → 자동으로 플레이스홀더 표시 |
 | `screenshots` | ○ | 스크린샷 이미지 경로 배열. 없으면 `[]` |
 | `links` | ○ | `demo`, `github` URL. 없으면 `""` |
-| `period` | ○ | 개발 기간. 예: `2024.03 ~ 2024.09` |
-| `role` | ○ | 담당 역할. 예: `기획 · 풀스택 개발` |
-| `status` | ○ | **`운영중` / `개발중` / `종료` 중 하나만** |
 | `featured` | ○ | `true`면 목록 상단 우선 정렬. 기본 `false` |
 
 ## 허용값(enum) — 반드시 지킬 것
 
-- `status`: `운영중`, `개발중`, `종료`
 - `techStack` 카테고리 키: `frontend`, `backend`, `database`, `infra`
 
 ## 값을 모를 때
@@ -76,9 +72,6 @@ VS Code 등에서 필수값 누락·오타·enum 위반·id 형식 오류를 실
   "thumbnail": "",
   "screenshots": [],
   "links": { "demo": "", "github": "" },
-  "period": "",
-  "role": "기획 · 풀스택 개발",
-  "status": "운영중",
   "featured": true
 }
 ```

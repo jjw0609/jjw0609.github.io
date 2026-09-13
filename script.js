@@ -31,14 +31,13 @@ function esc(str) {
 function applyMeta(meta = {}) {
     if (!meta) return;
     if (meta.name) {
-        homeBtn.innerHTML = `${esc(meta.name)}<span class="point-color">.</span>`;
+        // 대문자(예: J, W)에 포인트 컬러 적용
+        homeBtn.innerHTML = esc(meta.name).replace(/[A-Z]/g, m => `<span class="point-color">${m}</span>`);
     }
     const titleEl = document.getElementById('list-title');
     const subtitleEl = document.getElementById('list-subtitle');
     if (titleEl && meta.title) titleEl.textContent = meta.title;
     if (subtitleEl && meta.subtitle) subtitleEl.textContent = meta.subtitle;
-    const navLink = document.getElementById('github-link');
-    if (navLink && meta.githubUrl) navLink.href = meta.githubUrl;
     if (meta.title) document.title = `${meta.name || ''} - ${meta.title}`.trim();
 }
 
@@ -55,14 +54,9 @@ function renderList() {
 
         const tagsHtml = (project.tags || [])
             .map(tag => `<span class="tag">${esc(tag)}</span>`).join('');
-        const statusHtml = project.status
-            ? `<span class="status-badge">${esc(project.status)}</span>` : '';
 
         card.innerHTML = `
-            <div class="card-top">
-                <h3>${esc(project.title)}</h3>
-                ${statusHtml}
-            </div>
+            <h3>${esc(project.title)}</h3>
             <p>${esc(project.summary)}</p>
             <div class="tag-list">${tagsHtml}</div>
         `;
@@ -86,16 +80,6 @@ function renderTechStack(techStack) {
         }).join('');
     if (!rows) return '';
     return `<div class="tech-stack">${rows}</div>`;
-}
-
-// 메타 정보(기간/역할) HTML
-function renderMetaRows(project) {
-    const rows = [];
-    if (project.period) rows.push(['기간', project.period]);
-    if (project.role) rows.push(['역할', project.role]);
-    if (!rows.length) return '';
-    return `<dl class="meta-rows">` + rows.map(([k, v]) =>
-        `<div class="meta-row"><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('') + `</dl>`;
 }
 
 // 기능 목록 HTML
@@ -145,19 +129,13 @@ function showDetail(id, updateHash = true) {
     const imageHtml = project.thumbnail
         ? `<img src="${esc(project.thumbnail)}" alt="${esc(project.title)}" class="detail-image">`
         : PLACEHOLDER_SVG;
-    const statusHtml = project.status
-        ? `<span class="status-badge">${esc(project.status)}</span>` : '';
 
     detailContent.innerHTML = `
         <div class="detail-hero">
             <div class="detail-image-wrapper">${imageHtml}</div>
             <div class="detail-info">
-                <div class="detail-title-row">
-                    <h2>${esc(project.title)}</h2>
-                    ${statusHtml}
-                </div>
+                <h2>${esc(project.title)}</h2>
                 <p class="detail-summary">${esc(project.summary)}</p>
-                ${renderMetaRows(project)}
                 ${renderLinks(project.links)}
             </div>
         </div>

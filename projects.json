@@ -3,8 +3,7 @@
   "meta": {
     "name": "JaeWoong",
     "title": "Web Services",
-    "subtitle": "기획부터 개발까지 참여한 웹 서비스 목록입니다.",
-    "githubUrl": "https://github.com"
+    "subtitle": "일상의 불편을 직접 기획하고 서비스로 만들어온 기록입니다."
   },
   "projects": [
     {
@@ -33,41 +32,39 @@
         "demo": "",
         "github": ""
       },
-      "period": "",
-      "role": "기획 · 풀스택 개발",
-      "status": "운영중",
       "featured": true
     },
     {
-      "id": "moment-gallery",
-      "title": "Moment Gallery",
-      "summary": "사진과 영상을 효율적으로 분류하고 관리할 수 있는 웹 기반 미디어 갤러리",
+      "id": "moment",
+      "title": "Moment",
+      "summary": "Synology NAS의 사진·영상을 폴더 단위 권한으로 공유하는 갤러리 웹앱",
       "description": [
-        "Synology NAS 환경에 구축된 커스텀 미디어 분류 웹 서비스입니다. 사용자 지정 조건에 따라 미디어를 앨범 형태로 보여줍니다.",
-        "Docker 컨테이너 환경에서 안정적으로 동작하도록 인프라를 구성했으며, Python과 FastAPI를 활용하여 백엔드 성능을 최적화했습니다."
+        "Synology NAS에 저장된 사진·영상을 폴더 단위 권한으로 관리하는 개인용 갤러리 웹앱입니다. 관리자가 미디어를 업로드하면 YYYY/YYMMDD_이벤트명 구조로 자동 분류되고, 각 계정은 부여받은 폴더의 미디어만 세련된 썸네일 갤러리로 조회할 수 있습니다.",
+        "폴더 화이트리스트 기반 권한 모델과 권한 그룹, 로그인 없이 열람 가능한 토큰 공유 링크를 제공합니다. 카카오맵 위치 핀, 이모지 반응, 즐겨찾기, 방명록, 사진 꾸미기 등 가족·회사 앨범에 어울리는 감성 기능을 갖췄습니다.",
+        "백엔드는 FastAPI와 SQLAlchemy·PostgreSQL로, 프론트엔드는 React·TypeScript(Vite)로 구성했습니다. docker-compose로 패키징해 Synology NAS에 self-hosted GitHub Actions 러너로 자동 배포됩니다."
       ],
-      "tags": ["FastAPI", "React", "PostgreSQL", "Docker"],
+      "tags": ["FastAPI", "React", "TypeScript", "PostgreSQL", "Docker"],
       "techStack": {
-        "frontend": ["React"],
-        "backend": ["FastAPI", "Python"],
+        "frontend": ["React", "TypeScript", "Vite"],
+        "backend": ["FastAPI", "Python", "SQLAlchemy"],
         "database": ["PostgreSQL"],
-        "infra": ["Docker", "Synology NAS"]
+        "infra": ["Docker", "Synology NAS", "GitHub Actions", "Nginx"]
       },
       "features": [
-        "사용자 지정 조건 기반 미디어 앨범 분류",
-        "Docker 컨테이너 기반 배포",
-        "FastAPI 백엔드 성능 최적화"
+        "폴더 단위 화이트리스트 권한 및 권한 그룹 관리",
+        "로그인 없이 열람 가능한 토큰 공유 링크 (만료·취소 지원)",
+        "EXIF·파일명 기반 자동 분류 및 폴더별 SHA-256 중복 스킵",
+        "카카오맵 위치 핀, 이모지 반응, 즐겨찾기, 방명록",
+        "원본 라이트박스·슬라이드쇼·ffmpeg 영상 썸네일",
+        "반응형 UI, 다크/라이트 테마, 모바일 저장(Web Share)"
       ],
       "thumbnail": "",
       "screenshots": [],
       "links": {
-        "demo": "",
+        "demo": "https://moment.jjwoong.me",
         "github": ""
       },
-      "period": "",
-      "role": "기획 · 풀스택 개발",
-      "status": "운영중",
-      "featured": false
+      "featured": true
     },
     {
       "id": "hiking-tracker",
@@ -95,9 +92,6 @@
         "demo": "",
         "github": ""
       },
-      "period": "",
-      "role": "기획 · 풀스택 개발",
-      "status": "운영중",
       "featured": false
     }
   ]
