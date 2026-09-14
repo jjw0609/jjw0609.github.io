@@ -7,34 +7,6 @@
   },
   "projects": [
     {
-      "id": "map-lounge",
-      "title": "Map Lounge",
-      "summary": "사용자가 자유롭게 공간 정보를 공유하고 소통할 수 있는 맵 기반 커뮤니티 플랫폼",
-      "description": [
-        "공간 정보와 사용자 커뮤니티를 결합한 플랫폼입니다. VWorld 및 NGII의 배경 지도를 연동하고, 사용자가 원하는 위치 기반 데이터를 시각화할 수 있도록 설계했습니다.",
-        "PostGIS를 활용한 공간 데이터베이스 구축 및 GeoServer를 통한 효율적인 타일 서비스 제공에 집중했습니다."
-      ],
-      "tags": ["Spring Boot", "GeoServer", "PostGIS", "React"],
-      "techStack": {
-        "frontend": ["React"],
-        "backend": ["Spring Boot", "Java"],
-        "database": ["PostgreSQL", "PostGIS"],
-        "infra": ["GeoServer"]
-      },
-      "features": [
-        "VWorld / NGII 배경 지도 연동",
-        "위치 기반 데이터 시각화",
-        "PostGIS 기반 공간 쿼리 및 GeoServer 타일 서비스"
-      ],
-      "thumbnail": "",
-      "screenshots": [],
-      "links": {
-        "demo": "",
-        "github": ""
-      },
-      "featured": true
-    },
-    {
       "id": "moment",
       "title": "Moment",
       "summary": "Synology NAS의 사진·영상을 폴더 단위 권한으로 공유하는 갤러리 웹앱",
@@ -161,34 +133,6 @@
         "github": ""
       },
       "featured": true
-    },
-    {
-      "id": "hiking-tracker",
-      "title": "Hiking Tracker",
-      "summary": "사내 등산 동호회를 위한 맞춤형 활동 기록 및 배지 시스템",
-      "description": [
-        "사내 동호회 회원들의 등산 활동을 기록하고 특정 목표 달성 시 배지를 부여하는 시스템입니다.",
-        "사용자 친화적인 인터페이스와 실시간 세션 만료 알림 기능을 적용하여, 공공기관 수준의 안정적이고 직관적인 UI/UX 가이드라인을 준수했습니다."
-      ],
-      "tags": ["Java", "Spring Security", "Redis", "JavaScript"],
-      "techStack": {
-        "frontend": ["JavaScript"],
-        "backend": ["Java", "Spring Security"],
-        "database": ["Redis"],
-        "infra": []
-      },
-      "features": [
-        "등산 활동 기록 및 목표 달성 배지 부여",
-        "실시간 세션 만료 알림",
-        "공공기관 수준의 UI/UX 가이드라인 준수"
-      ],
-      "thumbnail": "",
-      "screenshots": [],
-      "links": {
-        "demo": "",
-        "github": ""
-      },
-      "featured": false
     }
   ]
 }
