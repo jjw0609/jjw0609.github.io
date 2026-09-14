@@ -64,17 +64,6 @@ body {
     color: var(--accent-color);
 }
 
-.nav-link {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.2s ease;
-}
-
-.nav-link:hover {
-    color: var(--accent-color);
-}
-
 /* View Control */
 .view-section {
     display: none;
@@ -206,7 +195,7 @@ body {
     border-radius: 12px;
     overflow: hidden;
     background: var(--hover-bg);
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/9;
     display: flex;
     align-items: center;
     justify-content: center;

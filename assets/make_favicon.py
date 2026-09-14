@@ -22,8 +22,6 @@ canvas.paste(cropped, ((side - cw) // 2, (side - ch) // 2), cropped)
 print(f"콘텐츠 bbox: {cw}x{ch} -> 정사각 캔버스: {side}x{side}")
 
 # 3) 산출물 저장
-canvas.save(os.path.join(BASE, "favicon.png"))  # 풀 해상도 투명 마스터
-
 def save(size, name):
     canvas.resize((size, size), Image.LANCZOS).save(os.path.join(BASE, name))
 
@@ -38,4 +36,4 @@ canvas.resize((256, 256), Image.LANCZOS).save(
     os.path.join(ROOT, "favicon.ico"), sizes=[(16, 16), (32, 32), (48, 48), (64, 64)]
 )
 
-print("생성 완료: assets/favicon.png, favicon-32/16.png, apple-touch-icon.png, icon-192/512.png + favicon.ico(루트)")
+print("생성 완료: assets/favicon-32/16.png, apple-touch-icon.png, icon-192/512.png + favicon.ico(루트)")

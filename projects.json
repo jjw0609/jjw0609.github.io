@@ -58,10 +58,42 @@
         "원본 라이트박스·슬라이드쇼·ffmpeg 영상 썸네일",
         "반응형 UI, 다크/라이트 테마, 모바일 저장(Web Share)"
       ],
-      "thumbnail": "",
+      "thumbnail": "assets/moment.png",
       "screenshots": [],
       "links": {
         "demo": "https://moment.jjwoong.me",
+        "github": ""
+      },
+      "featured": true
+    },
+    {
+      "id": "codepang",
+      "title": "코드팡 (CodePang)",
+      "summary": "HTML/CSS/JS 미니게임을 등록하고 로그인 없이 바로 즐기는 미니게임 모음 플랫폼",
+      "description": [
+        "누구나 HTML/CSS/JS로 만든 미니게임을 등록하고, 로그인 없이 바로 플레이할 수 있는 아기자기한 미니게임 모음 플랫폼입니다. 파일 드래그 앤 드롭 업로드와 HTML/CSS/JS 탭 코드 에디터(실시간 미리보기) 두 가지 방식으로 게임을 등록할 수 있습니다.",
+        "업로드된 게임은 iframe sandbox와 CSP로 격리 실행되어 앱 세션·쿠키에 접근할 수 없고, 신뢰 CDN 라이브러리만 허용됩니다. 확장자 화이트리스트, 용량 제한, ZIP 경로 탈출 차단 등 업로드 검증도 갖췄습니다.",
+        "비로그인 좋아요·공유, 마이페이지, 관리자 검수, 게임 등록 시 컨페티가 터지는 '팡' 이펙트 등 캐주얼한 경험에 집중했습니다. 백엔드는 FastAPI·SQLAlchemy·PostgreSQL, 프론트엔드는 React·TypeScript(Vite)로 구성해 docker-compose로 Synology NAS에 셀프 호스팅됩니다."
+      ],
+      "tags": ["FastAPI", "React", "TypeScript", "PostgreSQL", "Docker"],
+      "techStack": {
+        "frontend": ["React", "TypeScript", "Vite", "React Router"],
+        "backend": ["FastAPI", "Python", "SQLAlchemy", "JWT"],
+        "database": ["PostgreSQL"],
+        "infra": ["Docker", "Synology NAS", "DSM Reverse Proxy"]
+      },
+      "features": [
+        "로그인 없이 게임 조회·플레이·좋아요",
+        "파일 업로드 및 HTML/CSS/JS 코드 에디터 등록",
+        "iframe sandbox + CSP 기반 게임 격리 실행",
+        "게임 등록 성공 시 컨페티 '팡' 이펙트",
+        "마이페이지 및 관리자 검수·사용자 관리",
+        "라이트/다크/업무 위장 모드 테마"
+      ],
+      "thumbnail": "assets/codepang.png",
+      "screenshots": [],
+      "links": {
+        "demo": "https://codepang.jjwoong.me",
         "github": ""
       },
       "featured": true
