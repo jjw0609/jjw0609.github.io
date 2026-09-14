@@ -99,6 +99,70 @@
       "featured": true
     },
     {
+      "id": "notionlounge",
+      "title": "notionLounge",
+      "summary": "노션 URL만으로 예쁘게 꾸며 서브도메인에 셀프호스팅하는 페이지 발행 서비스",
+      "description": [
+        "노션 페이지를 URL만으로 예쁜 웹사이트로 발행·셀프호스팅하는 서비스입니다. 노션에서 '웹에 게시'한 공개 페이지를 토큰 없이 읽어와 react-notion-x로 노션 네이티브 룩에 가깝게 렌더하며, 사용자는 자기 서브도메인(예: jjw.mylog.page)에서 자기 페이지를 바로 발행할 수 있습니다.",
+        "미들웨어 기반 멀티테넌트 라우팅, 카테고리별로 묶인 10종 테마 엔진, 드래그 정렬 메뉴바와 모바일 하단 네비게이터, 커서 스포트라이트·스크롤 리빌 같은 특수효과, 클린 URL 매핑, OG 이미지 자동 생성 SEO까지 갖췄습니다.",
+        "Next.js(App Router)와 Prisma·PostgreSQL로 구성했고, 노션 응답은 ISR로 캐시하면서 대시보드에서 온디맨드 재검증도 지원합니다. Synology NAS에 Docker로 셀프호스팅되며, 서브도메인은 게시 승인 프로세스를 거쳐 관리자가 등록합니다."
+      ],
+      "tags": ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL"],
+      "techStack": {
+        "frontend": ["Next.js", "React", "TypeScript"],
+        "backend": ["Next.js Route Handler", "Prisma"],
+        "database": ["PostgreSQL"],
+        "infra": ["Docker", "Synology NAS", "Caddy"]
+      },
+      "features": [
+        "노션 '웹에 게시' 페이지를 URL만으로 렌더 (토큰 불필요)",
+        "서브도메인 기반 멀티테넌트 라우팅",
+        "카테고리별 10종 테마 엔진 (라이트/다크 팔레트)",
+        "드래그 정렬 메뉴바, 모바일 하단 네비게이터",
+        "OG 이미지 자동 생성, sitemap/robots SEO",
+        "ISR 캐시 + 대시보드 온디맨드 재검증"
+      ],
+      "thumbnail": "assets/notionLounge.png",
+      "screenshots": [],
+      "links": {
+        "demo": "https://mylog.page",
+        "github": ""
+      },
+      "featured": true
+    },
+    {
+      "id": "yourmusic",
+      "title": "너의 음악은",
+      "summary": "사주·기분과 오늘의 맥락을 결합해 매일 다른 곡을 추천하는 재방문형 음악 서비스",
+      "description": [
+        "사주, 심리테스트, 기분 즉시선택 중 하나로 사용자를 파악하고, 오늘의 날짜·날씨·사주 일진과 결합해 매일 다른 음악을 추천하는 재방문형 웹 서비스입니다. 같은 사용자라도 매일 결과가 달라지고, 곡에는 '오늘의 너'를 풀어낸 해석 카피가 함께 붙습니다.",
+        "곡마다 인지도(popularity) 점수를 매겨 유명한 곡일수록 더 자주 추천되도록 가중하면서도, 같은 날은 항상 같은 결과가 나오도록 결정론적 시드로 재현성을 지켰습니다. 음악 일기·주간 회고·무드 그래프로 재방문 경험을 쌓고, 생일 궁합과 OG 공유 카드로 확산되도록 설계했습니다.",
+        "프론트엔드는 React·Vite, 백엔드는 FastAPI·PostgreSQL로 구성했고, 밤하늘 그라디언트와 canvas 별자리 배경의 '사주 천상' 테마로 마무리했습니다. 단일 컨테이너(FastAPI가 API+정적파일 서빙)로 Synology NAS에 배포됩니다."
+      ],
+      "tags": ["React", "FastAPI", "PostgreSQL", "Vite"],
+      "techStack": {
+        "frontend": ["React", "Vite", "TypeScript"],
+        "backend": ["FastAPI", "Python", "SQLAlchemy"],
+        "database": ["PostgreSQL"],
+        "infra": ["Docker", "Synology NAS"]
+      },
+      "features": [
+        "사주/심리테스트/기분 선택 기반 온보딩",
+        "날씨·사주 일진 결합, 결정론적 시드로 매일 다른 추천",
+        "인지도(popularity) 가중 추천 및 추천 이유 문장 생성",
+        "음악 일기, 주간 회고, 무드 그래프",
+        "생일 기반 친구 궁합 및 궁합 곡 추천",
+        "OG 메타 공유 카드로 유입 연결"
+      ],
+      "thumbnail": "assets/yourMusic.png",
+      "screenshots": [],
+      "links": {
+        "demo": "https://yourMusic.jjwoong.me",
+        "github": ""
+      },
+      "featured": true
+    },
+    {
       "id": "hiking-tracker",
       "title": "Hiking Tracker",
       "summary": "사내 등산 동호회를 위한 맞춤형 활동 기록 및 배지 시스템",
