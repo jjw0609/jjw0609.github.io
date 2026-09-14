@@ -31,8 +31,8 @@ function esc(str) {
 function applyMeta(meta = {}) {
     if (!meta) return;
     if (meta.name) {
-        // 대문자(예: J, W)에 포인트 컬러 적용
-        homeBtn.innerHTML = esc(meta.name).replace(/[A-Z]/g, m => `<span class="point-color">${m}</span>`);
+        // "Woong" 부분에 포인트 컬러 적용
+        homeBtn.innerHTML = esc(meta.name).replace('Woong', '<span class="point-color">Woong</span>');
     }
     const titleEl = document.getElementById('list-title');
     const subtitleEl = document.getElementById('list-subtitle');
@@ -103,7 +103,7 @@ function renderDescription(description) {
 function renderLinks(links) {
     if (!links) return '';
     const btns = [];
-    if (links.demo) btns.push(`<a class="link-btn primary" href="${esc(links.demo)}" target="_blank" rel="noopener">Live Demo</a>`);
+    if (links.demo) btns.push(`<a class="link-btn primary" href="${esc(links.demo)}" target="_blank" rel="noopener">사이트 보러가기</a>`);
     if (links.github) btns.push(`<a class="link-btn" href="${esc(links.github)}" target="_blank" rel="noopener">GitHub</a>`);
     if (!btns.length) return '';
     return `<div class="link-btns">${btns.join('')}</div>`;

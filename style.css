@@ -38,6 +38,10 @@ body {
 
 /* Header */
 .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg-color);
     border-bottom: 1px solid var(--border-color);
     padding: 24px 0;
     margin-bottom: 48px;
