@@ -133,6 +133,38 @@
         "github": ""
       },
       "featured": true
+    },
+    {
+      "id": "d-days",
+      "title": "D-Days",
+      "summary": "만료일·구독·반복 일정과 금액을 원형 게이지로 한눈에 관리하는 D-day 대시보드",
+      "description": [
+        "도메인·적금·구독·보험·계약 등의 만료/종료일, 반복 일정, 금액을 한눈에 관리하는 개인용 D-day 대시보드입니다. 원형 게이지로 잔여 기간을 시각화하고, 신호등 색상(D-7/D-14/D-30/D-31+)으로 임박도를 직관적으로 보여줍니다.",
+        "구독의 월·연 예상 지출과 만기 예정 자산을 집계하고, 매월/매년 반복 일정은 다음 발생일로 롤오버하며 원클릭 갱신을 지원합니다. 만료 임박 시 이메일로 알림을 보내고, 아이디+비밀번호 기반 다중 사용자와 관리자 기능도 갖췄습니다.",
+        "백엔드는 FastAPI·SQLAlchemy·PostgreSQL·APScheduler로, 프론트엔드는 정적 HTML/JS로 구성했습니다. Docker Compose로 패키징해 Synology NAS에서 알림 스케줄러까지 상시 구동됩니다."
+      ],
+      "tags": ["FastAPI", "PostgreSQL", "APScheduler", "Docker"],
+      "techStack": {
+        "frontend": ["HTML", "JavaScript"],
+        "backend": ["FastAPI", "Python", "SQLAlchemy", "APScheduler"],
+        "database": ["PostgreSQL"],
+        "infra": ["Docker", "Synology NAS"]
+      },
+      "features": [
+        "원형 게이지 대시보드 및 임박도 신호등(D-7/D-14/D-30/D-31+)",
+        "구독 월·연 예상 지출, 만기 예정 자산 집계",
+        "반복 일정(매월/매년) 롤오버 및 원클릭 갱신",
+        "임박 일정 이메일 알림 (리드타임 30·14·7·1일)",
+        "아이디+비밀번호 다중 사용자 및 관리자 기능",
+        "라이트/딥네이비 다크 테마"
+      ],
+      "thumbnail": "",
+      "screenshots": [],
+      "links": {
+        "demo": "https://d-days.jjwoong.me",
+        "github": ""
+      },
+      "featured": true
     }
   ]
 }
