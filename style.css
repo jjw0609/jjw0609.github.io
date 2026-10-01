@@ -105,12 +105,13 @@ body {
 .project-card {
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    padding: 24px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     background: var(--bg-color);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 /* 호버 시 킬링 컬러로 테두리가 변하고, 그림자에도 푸른빛이 살짝 돕니다 */
@@ -118,6 +119,28 @@ body {
     border-color: var(--accent-color);
     transform: translateY(-4px);
     box-shadow: 0 12px 24px rgba(0, 82, 255, 0.08);
+}
+
+/* 카드 썸네일 (자동 스크린샷 또는 수동 이미지) */
+.card-thumb {
+    aspect-ratio: 16/9;
+    background: var(--hover-bg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    padding: 20px 24px 24px;
 }
 
 .project-card h3 {

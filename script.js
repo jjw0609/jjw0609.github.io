@@ -20,6 +20,21 @@ const STACK_LABELS = {
 // 이미지가 없을 때 쓰는 플레이스홀더 SVG
 const PLACEHOLDER_SVG = `<svg class="image-placeholder" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>`;
 
+// 썸네일이 없으면 데모 URL로 자동 스크린샷(WordPress mshots, 무료·키 불필요) 생성
+function thumbnailUrl(project) {
+    if (project.thumbnail) return project.thumbnail;
+    const demo = project.links && project.links.demo;
+    if (demo) return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(demo)}?w=1200`;
+    return '';
+}
+
+// 썸네일 영역 HTML (이미지 로드 실패 시 플레이스홀더로 자동 대체)
+function thumbHtml(project, imgClass) {
+    const url = thumbnailUrl(project);
+    if (!url) return PLACEHOLDER_SVG;
+    return `<img src="${esc(url)}" alt="${esc(project.title)}" class="${imgClass}" loading="lazy" onerror="this.outerHTML = PLACEHOLDER_SVG">`;
+}
+
 // HTML 이스케이프 (사용자 데이터 안전 렌더링)
 function esc(str) {
     return String(str ?? '').replace(/[&<>"']/g, c => ({
@@ -56,9 +71,12 @@ function renderList() {
             .map(tag => `<span class="tag">${esc(tag)}</span>`).join('');
 
         card.innerHTML = `
-            <h3>${esc(project.title)}</h3>
-            <p>${esc(project.summary)}</p>
-            <div class="tag-list">${tagsHtml}</div>
+            <div class="card-thumb">${thumbHtml(project, 'card-thumb-img')}</div>
+            <div class="card-body">
+                <h3>${esc(project.title)}</h3>
+                <p>${esc(project.summary)}</p>
+                <div class="tag-list">${tagsHtml}</div>
+            </div>
         `;
         projectGrid.appendChild(card);
     });
@@ -126,9 +144,7 @@ function showDetail(id, updateHash = true) {
     const project = projects.find(p => p.id === id);
     if (!project) { showList(); return; }
 
-    const imageHtml = project.thumbnail
-        ? `<img src="${esc(project.thumbnail)}" alt="${esc(project.title)}" class="detail-image">`
-        : PLACEHOLDER_SVG;
+    const imageHtml = thumbHtml(project, 'detail-image');
 
     detailContent.innerHTML = `
         <div class="detail-hero">

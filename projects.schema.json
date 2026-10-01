@@ -69,7 +69,7 @@
         },
         "thumbnail": {
           "type": "string",
-          "description": "대표 이미지 경로. 없으면 빈 문자열 → 플레이스홀더 표시"
+          "description": "대표 이미지 경로. 없으면 빈 문자열 → links.demo가 있으면 자동 스크린샷, 없으면 플레이스홀더 표시"
         },
         "screenshots": {
           "type": "array",
