@@ -8,6 +8,9 @@ const listView = document.getElementById('list-view');
 const detailView = document.getElementById('detail-view');
 const backBtn = document.getElementById('back-btn');
 const homeBtn = document.getElementById('home-btn');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
 
 // techStack 카테고리 표시명
 const STACK_LABELS = {
@@ -33,6 +36,16 @@ function thumbHtml(project, imgClass) {
     const url = thumbnailUrl(project);
     if (!url) return PLACEHOLDER_SVG;
     return `<img src="${esc(url)}" alt="${esc(project.title)}" class="${imgClass}" loading="lazy" onerror="this.outerHTML = PLACEHOLDER_SVG">`;
+}
+
+// 돋보기(확대보기) 아이콘
+const ZOOM_ICON_SVG = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`;
+
+// 썸네일 확대보기 버튼 (실제 이미지가 있을 때만 노출)
+function zoomBtnHtml(project) {
+    const url = thumbnailUrl(project);
+    if (!url) return '';
+    return `<button type="button" class="zoom-btn" aria-label="이미지 확대보기" data-zoom-url="${esc(url)}" data-zoom-alt="${esc(project.title)}">${ZOOM_ICON_SVG}</button>`;
 }
 
 // HTML 이스케이프 (사용자 데이터 안전 렌더링)
@@ -71,7 +84,10 @@ function renderList() {
             .map(tag => `<span class="tag">${esc(tag)}</span>`).join('');
 
         card.innerHTML = `
-            <div class="card-thumb">${thumbHtml(project, 'card-thumb-img')}</div>
+            <div class="card-thumb">
+                ${thumbHtml(project, 'card-thumb-img')}
+                ${zoomBtnHtml(project)}
+            </div>
             <div class="card-body">
                 <h3>${esc(project.title)}</h3>
                 <p>${esc(project.summary)}</p>
@@ -148,7 +164,10 @@ function showDetail(id, updateHash = true) {
 
     detailContent.innerHTML = `
         <div class="detail-hero">
-            <div class="detail-image-wrapper">${imageHtml}</div>
+            <div class="detail-image-wrapper">
+                ${imageHtml}
+                ${zoomBtnHtml(project)}
+            </div>
             <div class="detail-info">
                 <h2>${esc(project.title)}</h2>
                 <p class="detail-summary">${esc(project.summary)}</p>
@@ -191,10 +210,43 @@ function routeFromHash() {
     }
 }
 
+// 라이트박스 열기/닫기
+function openLightbox(url, alt) {
+    lightboxImg.src = url;
+    lightboxImg.alt = alt;
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+}
+
 // 이벤트 리스너
 backBtn.addEventListener('click', () => showList());
 homeBtn.addEventListener('click', () => showList());
 window.addEventListener('hashchange', routeFromHash);
+
+// 확대보기 버튼 클릭 (카드의 onclick은 버블 단계라, 캡처 단계에서 먼저 가로채 전파를 막음)
+document.addEventListener('click', (e) => {
+    const zoomBtn = e.target.closest('.zoom-btn');
+    if (zoomBtn) {
+        e.stopPropagation();
+        openLightbox(zoomBtn.dataset.zoomUrl, zoomBtn.dataset.zoomAlt);
+    }
+}, true);
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+});
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+});
 
 // 초기화: 데이터 로드
 fetch('./projects.json')
